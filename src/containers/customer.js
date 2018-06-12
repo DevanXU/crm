@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from 'react-redux'
-import customerReducer from '../reducers/customerReducer'
 import { setName } from '../actions/customerAction'
 
 class CustomerList extends React.Component {
