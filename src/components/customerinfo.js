@@ -1,9 +1,22 @@
-const CustomerInfo = () => {
-    return (
-        <div>
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-        </div>
-    )
+export class CustomerInfo extends Component {
+    render() {
+        return (
+            <div>
+
+            </div>
+        )
+    }
 }
 
-export default CustomerInfo
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)TM_FILENAME_BASECustoCustomerInfo)

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import { Route } from 'react-router-dom'
 import store from './store'
-import CustomerList from './containers/customer'
+import Home from './components/home'
+import CusotmerList from './containers/customer'
 import './App.css';
-import Sale from './containers/sale';
 
 class App extends Component {
   render() {
@@ -12,8 +13,8 @@ class App extends Component {
       <BrowserRouter>
         <Provider store={store}>
           <div className="App">
-            <CustomerList />
-            <Sale />
+            <Route exact path='/' component={Home} />
+            <Route path='/customer' component={CusotmerList} />
           </div>
         </Provider>
       </BrowserRouter>
