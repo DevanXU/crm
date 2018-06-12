@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+const CustomerInfo = () => {
+    return (
+        <div>
 
-class CustomerInfo extends React.Component {
-    render() {
-        return (
-            <div>
-
-            </div>
-        )
-    }
+        </div>
+    )
 }
+
+export default CustomerInfo
