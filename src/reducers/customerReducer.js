@@ -1,5 +1,6 @@
 const customerReducer = (state = {
-    name: ''
+    name: '',
+    disable: false
 }, action) => {
     console.log('customerReducer:', state, action)
     switch (action.type) {

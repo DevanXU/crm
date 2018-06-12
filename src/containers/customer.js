@@ -8,10 +8,6 @@ const Item = List.Item;
 const Brief = Item.Brief;
 
 class CustomerList extends React.Component {
-    state = {
-        disabled: false,
-    }
-
     render() {
         return (<div>
             <List renderHeader={() => 'Basic Style'} className="my-list">
@@ -76,7 +72,7 @@ class CustomerList extends React.Component {
         </Item>
             </List>
             <List renderHeader={() => 'Other'} className="my-list">
-                <Item disabled={this.state.disabled} extra="" onClick={() => { console.log('click', this.state.disabled); this.setState({ disabled: true }); }}>Click to disable</Item>
+                <Item disabled={this.props.customer.disabled} extra="" onClick={() => { console.log('click', this.props.customer.disabled); this.setState({ disabled: true }); }}>Click to disable</Item>
                 <Item>
                     <select defaultValue="1">
                         <option value="1">Html select element</option>

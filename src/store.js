@@ -4,7 +4,10 @@ import customerReducer from './reducers/customerReducer'
 import saleReducer from './reducers/saleReducer'
 
 export default createStore(
-    combineReducers({ customerReducer, saleReducer }),
+    combineReducers({
+        customerReducer,
+        saleReducer,
+    }),
     {},
     applyMiddleware(logger)
 )
