@@ -37,7 +37,7 @@ const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
 const dataBlobs = {};
-let sectionIDs = [];
+let sectionIDs = [];  // will go wrong if "Go Back" in browser and re-enter
 let rowIDs = [];
 function genData(pIndex = 0) {
     for (let i = 0; i < NUM_SECTIONS; i++) {
