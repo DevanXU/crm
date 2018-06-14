@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import { updateSaleNumber } from '../actions/saleAction'
 import { fetchPosts } from '../actions/customerAction'
 import { connect } from 'react-redux'
+import './sale.css'
 
 export class Sale extends Component {
     render() {
         const users = this.props.customer.users.map(user => (
             <div key={user.id}>
+                <p>{user.title}</p>
                 <p>{user.body}</p>
             </div>
         ));
         return (
             <div>
-                <button onClick={() => this.props.fetchPosts()}>{this.props.sale.number}</button>
-                <div>
+                <button onClick={() => this.props.fetchPosts()} />
+                <div className='Users'>
                     {users}
                 </div>
             </div>
