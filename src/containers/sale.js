@@ -14,9 +14,9 @@ export class Sale extends Component {
                 <p>Phone: {user.phone}</p>
                 <p>Website: {user.website}</p>
                 <p>Compnay:</p>
-                <p>{user.company.name} </p>
-                <p>{user.company.catchPhrase} </p>
-                <p>{user.company.bs} </p>
+                <p>{user.company.name}</p>
+                <p>{user.company.catchPhrase}</p>
+                <p>{user.company.bs}</p>
                 <hr />
             </div>
         ));
@@ -24,9 +24,10 @@ export class Sale extends Component {
             <div>
                 <button onClick={() => this.props.fetchUsers()} />
                 <div className='Users'>
+                    <p>{this.props.user.users.length} users</p>
                     {users}
                 </div>
-            </div>
+            </div >
         )
     }
 }
