@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
-import { updateSaleNumber } from '../actions/saleAction'
-import { fetchPosts } from '../actions/customerAction'
+import { fetchUsers } from '../actions/userAction'
 import { connect } from 'react-redux'
 import './sale.css'
 
 export class Sale extends Component {
     render() {
-        const users = this.props.customer.users.map(user => (
+        const users = this.props.user.users.map(user => (
             <div key={user.id}>
-                <p>{user.title}</p>
-                <p>{user.body}</p>
+                <p>Name: {user.name}</p>
+                <p>Username: {user.username}</p>
+                <p>Email: {user.email}</p>
+                <p>Address: {user.address.street}, {user.address.suite}, {user.address.city}</p>
+                <p>Phone: {user.phone}</p>
+                <p>Website: {user.website}</p>
+                <p>Compnay:</p>
+                <p>{user.company.name} </p>
+                <p>{user.company.catchPhrase} </p>
+                <p>{user.company.bs} </p>
+                <hr />
             </div>
         ));
         return (
             <div>
-                <button onClick={() => this.props.fetchPosts()} />
+                <button onClick={() => this.props.fetchUsers()} />
                 <div className='Users'>
                     {users}
                 </div>
@@ -25,15 +33,13 @@ export class Sale extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        customer: state.customer,
-        sale: state.sale
+        user: state.user,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateSale: (number) => dispatch(updateSaleNumber(number)),
-        fetchPosts: () => dispatch(fetchPosts())
+        fetchUsers: () => dispatch(fetchUsers()),
     }
 }
 

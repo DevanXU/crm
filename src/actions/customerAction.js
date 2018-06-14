@@ -1,8 +1,8 @@
 import { FETCH_POSTS, SET_NAME } from './types'
 
 export const fetchPosts = () => dispatch => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-        // fetch('https://localhost:3001/posts')
+    // fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('http://localhost:3001/posts')
         .then(res => res.json())
         .then(posts =>
             dispatch({
