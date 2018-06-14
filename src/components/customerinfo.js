@@ -19,4 +19,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)TM_FILENAME_BASECustoCustomerInfo)
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerInfo)

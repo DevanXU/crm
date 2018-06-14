@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom'
 import store from './store'
 import Home from './components/home'
 import CusotmerList from './containers/customer'
+import Sale from './containers/sale'
 import './App.css';
 
 class App extends Component {
@@ -12,12 +13,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Provider store={store}>
-          <div className="App">
-            <Route exact path='/' component={Home} />
-            <Route path='/customer' component={CusotmerList} />
+          <div>
+            <div className="App">
+              <Route path='/' component={Home} />
+              <Route path='/' component={Sale} />
+              <Route path='/customer' component={CusotmerList} />
+            </div>
           </div>
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter >
     );
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import { setName } from '../actions/customerAction'
+import { setName, fetchPosts } from '../actions/customerAction'
 
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
@@ -15,7 +15,7 @@ function MyBody(props) {
     );
 }
 
-const data = [
+const _data = [
     {
         img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
         title: 'Meet hotel',
@@ -70,11 +70,16 @@ class CustomerList extends React.Component {
             sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
         });
 
+
         this.state = {
             dataSource,
             isLoading: true,
             height: document.documentElement.clientHeight * 3 / 4,
         };
+    }
+
+    componentWillMount = () => {
+        this.props.fetchPosts()
     }
 
     componentDidMount() {
@@ -131,6 +136,7 @@ class CustomerList extends React.Component {
                 }}
             />
         );
+        var data = _data
         let index = data.length - 1;
         const row = (rowData, sectionID, rowID) => {
             if (index < 0) {
@@ -162,6 +168,7 @@ class CustomerList extends React.Component {
             <ListView
                 ref={el => this.lv = el}
                 dataSource={this.state.dataSource}
+                // dataSource={this.props.customer.users}
                 renderHeader={() => <span>header</span>}
                 renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
                     {this.state.isLoading ? 'Loading...' : 'Loaded'}
@@ -170,6 +177,8 @@ class CustomerList extends React.Component {
                     <div>{`Task ${sectionData.split(' ')[1]}`}</div>
                 )}
                 renderBodyComponent={() => <MyBody />}
+                // renderBodyComponent={() => <div>{this.props.customer.users.map((user) => <div>{user.id}:{user.body}</div>)}</div>}
+
                 renderRow={row}
                 renderSeparator={separator}
                 style={{
@@ -188,13 +197,14 @@ class CustomerList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        customer: state.customerReducer
+        customer: state.customer
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setName: (name) => dispatch(setName(name))
+        setName: (name) => dispatch(setName(name)),
+        fetchPosts: () => dispatch(fetchPosts())
     }
 }
 
