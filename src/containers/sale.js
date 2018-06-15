@@ -22,7 +22,7 @@ export class Sale extends Component {
         ));
         return (
             <div>
-                <button onClick={() => this.props.fetchUsers()} />
+                <button onClick={() => this.props.fetchUsers()}>Trigger</button>
                 <div className='Users'>
                     <p>{this.props.user.users.length} users</p>
                     {users}
