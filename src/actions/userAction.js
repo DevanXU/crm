@@ -1,4 +1,4 @@
-import { FETCH_USERS } from './types'
+import { FETCH_USERS, FETCH_PHOTOS, FETCH_TODOS } from './types'
 
 export const fetchUsers = () => dispatch => {
     // fetch('https://jsonplaceholder.typicode.com/users')
@@ -10,4 +10,26 @@ export const fetchUsers = () => dispatch => {
                 payload: users
             })
         );
-};
+}
+
+export const fetchPhotos = () => dispatch => {
+    fetch('http://localhost:3001/photos')
+        .then(res => res.json())
+        .then(photos =>
+            dispatch({
+                type: FETCH_PHOTOS,
+                payload: photos
+            })
+        )
+}
+
+export const fetchTodos = () => dispatch => {
+    fetch('http://localhost:3001/todos')
+        .then(res => res.json())
+        .then(todos =>
+            dispatch({
+                type: FETCH_TODOS,
+                payload: todos
+            })
+        )
+}
