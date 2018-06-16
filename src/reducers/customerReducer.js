@@ -1,6 +1,6 @@
 const customerReducer = (state = {
     name: '',
-    users: [],
+    posts: [],
     disable: false
 }, action) => {
     switch (action.type) {
@@ -15,7 +15,7 @@ const customerReducer = (state = {
             console.log('customerReducer FETCH_POSTS:', state, action)
             state = {
                 ...state,
-                users: action.payload
+                posts: action.payload
             }
             break
         default:

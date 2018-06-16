@@ -138,7 +138,8 @@ class CustomerList extends React.Component {
                 }}
             />
         );
-        var data = _data
+        // var data = _data
+        var data = this.props.customer.posts
         let index = data.length - 1;
         const row = (rowData, sectionID, rowID) => {
             if (index < 0) {
@@ -158,7 +159,7 @@ class CustomerList extends React.Component {
                     <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
                         <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="" />
                         <div style={{ lineHeight: 1 }}>
-                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
+                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.body}</div>
                             <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
                         </div>
                     </div>
