@@ -1,8 +1,8 @@
 import { FETCH_USERS, FETCH_PHOTOS, FETCH_TODOS } from './types'
+import * as uri from './uri'
 
 export const fetchUsers = () => dispatch => {
-    // fetch('https://jsonplaceholder.typicode.com/users')
-    fetch('http://localhost:3001/users')
+    fetch(uri.URI_FETCH_USERS)
         .then(res => res.json())
         .then(users =>
             dispatch({
@@ -13,7 +13,7 @@ export const fetchUsers = () => dispatch => {
 }
 
 export const fetchPhotos = () => dispatch => {
-    fetch('http://localhost:3001/photos')
+    fetch(uri.URI_FETCH_PHOTOS)
         .then(res => res.json())
         .then(photos =>
             dispatch({
@@ -24,7 +24,7 @@ export const fetchPhotos = () => dispatch => {
 }
 
 export const fetchTodos = () => dispatch => {
-    fetch('http://localhost:3001/todos')
+    fetch(uri.URI_FETCH_TODOS)
         .then(res => res.json())
         .then(todos =>
             dispatch({

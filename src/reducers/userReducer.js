@@ -1,12 +1,18 @@
-import { FETCH_USERS, FETCH_TODOS } from '../actions/types'
+import { FETCH_USERS, FETCH_TODOS, FETCH_PHOTOS } from '../actions/types'
 
+/**
+ * Refer to db.json for the data structure of users, todos, photos.
+ * 
+ * @param {*} state 
+ * @param {*} action 
+ */
 const userReducer = (state = {
     users: [],
     todos: [],
+    photos: [],
 }, action) => {
     switch (action.type) {
         case FETCH_USERS:
-            console.log('customerReducer FETCH_USERS:', state, action)
             state = {
                 ...state,
                 users: action.payload
@@ -16,6 +22,12 @@ const userReducer = (state = {
             state = {
                 ...state,
                 todos: action.payload
+            }
+            break
+        case FETCH_PHOTOS:
+            state = {
+                ...state,
+                photos: action.payload
             }
             break
         default:
