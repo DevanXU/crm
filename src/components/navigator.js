@@ -61,7 +61,9 @@ export class Navigator extends Component {
                             </div>
                         </Popover>
                     }
-                >NavBar</NavBar>
+                >
+                    {this.props.name}
+                </NavBar>
 
                 {/* <NavBar
                     mode="dark"

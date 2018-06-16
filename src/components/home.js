@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Grid, Popover } from 'antd-mobile';
 import Navigator from './navigator'
+import './home.css'
 
 const Item = Popover.Item;
 
@@ -16,35 +17,46 @@ const NavBarItems = [
     </Item>),
 ]
 
-const data = Array.from(new Array(9)).map((_val, i) => ({
-    icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-    text: `name${i}`,
-}));
+/* 'data' can be fetched from server, so that it can be dynamic */
+const data = [
+    {
+        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+        text: '客户',
+        link: '/customer',
+    },
+    {
+        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+        text: '联系人',
+        link: '/user',
+    },
+    {
+        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+        text: '跟进记录',
+        link: '/sale',
+    },
+]
 
 export class Home extends Component {
     render() {
         return (
             <div>
                 <div>
-                    <Navigator
-                        menu={NavBarItems}
-                    > Home
-                    </Navigator>
+                    <Navigator name="CRM" menu={NavBarItems} />
                 </div>
-                <div className="sub-title">Carousel</div>
+                <div className="sub-title">销售过程</div>
                 <Grid data={data} isCarousel onClick={_el => console.log(_el)}
                     columnNum={3}
                     renderItem={dataItem => (
                         <div style={{ padding: '12.5px' }}>
-                            <Link to='/customer'><img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="" /></Link>
+                            <Link to={dataItem.link}><img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="" /></Link>
                             <div style={{ color: '#888', fontSize: '14px', marginTop: '12px' }}>
-                                <span>I am title..</span>
+                                <span>{dataItem.text}</span>
                             </div>
                         </div>
                     )}
                 />
 
-            </div>
+            </div >
         );
     }
 }

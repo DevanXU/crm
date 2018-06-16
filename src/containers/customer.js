@@ -6,6 +6,8 @@ import { setName, fetchPosts } from '../actions/customerAction'
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
 
+import Navigator from '../components/navigator'
+
 function MyBody(props) {
     return (
         <div className="am-list-body my-body">
@@ -165,32 +167,35 @@ class CustomerList extends React.Component {
         };
 
         return (
-            <ListView
-                ref={el => this.lv = el}
-                dataSource={this.state.dataSource}
-                // dataSource={this.props.customer.users}
-                renderHeader={() => <span>header</span>}
-                renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-                    {this.state.isLoading ? 'Loading...' : 'Loaded'}
-                </div>)}
-                renderSectionHeader={sectionData => (
-                    <div>{`Task ${sectionData.split(' ')[1]}`}</div>
-                )}
-                renderBodyComponent={() => <MyBody />}
-                // renderBodyComponent={() => <div>{this.props.customer.users.map((user) => <div>{user.id}:{user.body}</div>)}</div>}
+            <div>
+                <Navigator name="客户" />
+                <ListView
+                    ref={el => this.lv = el}
+                    dataSource={this.state.dataSource}
+                    // dataSource={this.props.customer.users}
+                    renderHeader={() => <span>header</span>}
+                    renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
+                        {this.state.isLoading ? 'Loading...' : 'Loaded'}
+                    </div>)}
+                    renderSectionHeader={sectionData => (
+                        <div>{`Task ${sectionData.split(' ')[1]}`}</div>
+                    )}
+                    renderBodyComponent={() => <MyBody />}
+                    // renderBodyComponent={() => <div>{this.props.customer.users.map((user) => <div>{user.id}:{user.body}</div>)}</div>}
 
-                renderRow={row}
-                renderSeparator={separator}
-                style={{
-                    height: this.state.height,
-                    overflow: 'auto',
-                }}
-                pageSize={4}
-                onScroll={() => { console.log('scroll'); }}
-                scrollRenderAheadDistance={500}
-                onEndReached={this.onEndReached}
-                onEndReachedThreshold={10}
-            />
+                    renderRow={row}
+                    renderSeparator={separator}
+                    style={{
+                        height: this.state.height,
+                        overflow: 'auto',
+                    }}
+                    pageSize={4}
+                    onScroll={() => { console.log('scroll'); }}
+                    scrollRenderAheadDistance={500}
+                    onEndReached={this.onEndReached}
+                    onEndReachedThreshold={10}
+                />
+            </div>
         );
     }
 }

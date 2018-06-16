@@ -15,9 +15,10 @@ class App extends Component {
         <Provider store={store}>
           <div>
             <div className="App">
-              <Route path='/' component={Home} />
-              <Route path='/' component={Sale} />
+              <Route exact path='/' component={Home} />
+              <Route path='/sale' component={Sale} />
               <Route path='/customer' component={CusotmerList} />
+              {this.props.children}
             </div>
           </div>
         </Provider>
