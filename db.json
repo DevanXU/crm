@@ -1,4 +1,21 @@
 {
+  "apps": [
+    {
+      "icon": "https: //gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png",
+      "text": "客户",
+      "link": "/customer"
+    },
+    {
+      "icon": "https: //gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png",
+      "text": "联系",
+      "link": "/user"
+    },
+    {
+      "icon": "https: //gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png",
+      "text": "跟进记录",
+      "link": "/sale"
+    }
+  ],
   "posts": [
     {
       "userId": 1,

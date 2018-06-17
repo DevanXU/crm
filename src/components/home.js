@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Grid, Popover } from 'antd-mobile';
+import { Grid, Popover } from 'antd-mobile'
 import Navigator from './navigator'
+import { fetchApps } from '../actions/homeAction'
 import './home.css'
 
 const Item = Popover.Item;
@@ -17,7 +18,6 @@ const NavBarItems = [
     </Item>),
 ]
 
-/* 'data' can be fetched from server, so that it can be dynamic */
 const data = [
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
@@ -55,19 +55,22 @@ export class Home extends Component {
                         </div>
                     )}
                 />
-
             </div >
         );
     }
 }
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+    return {
+        home: state.home
+    }
+}
 
-})
-
-const mapDispatchToProps = {
-
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchApps: () => dispatch(fetchApps())
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
