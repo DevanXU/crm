@@ -6,7 +6,7 @@ export default class TabBarExample extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'redTab',
+            selectedTab: 'blueTab',
             hidden: false,
             fullScreen: false,
         };
@@ -75,8 +75,7 @@ export default class TabBarExample extends React.Component {
                         }}
                         data-seed="logId"
                     >
-                        {/* {this.renderContent('Life')} */}
-                        {<Home />}
+                        {this.renderContent('Life')}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
@@ -106,7 +105,8 @@ export default class TabBarExample extends React.Component {
                         }}
                         data-seed="logId1"
                     >
-                        {this.renderContent('Koubei')}
+                        {/* {this.renderContent('CRM')} */}
+                        {<Home />}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
@@ -135,7 +135,7 @@ export default class TabBarExample extends React.Component {
                             });
                         }}
                     >
-                        {this.renderContent('Friend')}
+                        {this.renderContent('Work')}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
@@ -149,7 +149,7 @@ export default class TabBarExample extends React.Component {
                             });
                         }}
                     >
-                        {this.renderContent('My')}
+                        {this.renderContent('More')}
                     </TabBar.Item>
                 </TabBar>
             </div>

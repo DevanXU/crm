@@ -5,3 +5,5 @@ export const FETCH_TODOS = 'FETCH_TODOS'
 export const FETCH_APPS = 'FETCH_APPS'
 export const SET_NAME = 'SET_NAME'
 export const UPDATE_SALE_NUMBER = 'UPDATE_SALE_NUMBER'
+
+export const POST_NETWORK_ERROR = 'POST_NETWORK_ERROR'

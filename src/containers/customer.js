@@ -145,6 +145,13 @@ class CustomerList extends React.Component {
             if (index < 0) {
                 index = data.length - 1;
             }
+
+            // If index is invalid, render nothing to prevent crash.
+            // But need a better way to handle this.
+            if (index < 0) {
+                return (<div></div>)
+            }
+
             const obj = data[index--];
             return (
                 <div key={rowID} style={{ padding: '0 15px' }}>

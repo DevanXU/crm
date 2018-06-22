@@ -16,10 +16,10 @@ class App extends Component {
         <Provider store={store}>
           <div>
             <div className="App">
-              {/* <Route exact path='/' component={Home} />
+              <Route exact path='/' component={Home} />
               <Route path='/sale' component={Sale} />
               <Route path='/customer' component={CusotmerList} />
-              {this.props.children} */}
+              {this.props.children}
               <TabBarExample />
             </div>
           </div>
