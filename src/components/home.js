@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Grid, Popover } from 'antd-mobile'
 import Navigator from './navigator'
 import { fetchApps } from '../actions/homeAction'
+import TabBarExample from './tabbar';
 import './home.css'
 
 const Item = Popover.Item;
@@ -36,14 +37,10 @@ const data = [
     },
 ]
 
-export class Home extends Component {
+export class AppList extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <Navigator name="CRM" menu={NavBarItems} />
-                </div>
-                <div className="sub-title">销售过程</div>
                 <Grid data={data} isCarousel onClick={_el => console.log(_el)}
                     columnNum={3}
                     renderItem={dataItem => (
@@ -55,6 +52,23 @@ export class Home extends Component {
                         </div>
                     )}
                 />
+            </div>
+        )
+    }
+}
+
+export class Home extends Component {
+    render() {
+        return (
+            <div>
+                <div>
+                    <Navigator name="CRM" menu={NavBarItems} />
+                </div>
+                {/* <div className="sub-title">销售过程</div>
+                <AppList /> */}
+                <div>
+                    <TabBarExample />
+                </div>
             </div >
         );
     }

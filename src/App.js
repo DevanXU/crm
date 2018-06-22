@@ -19,8 +19,6 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route path='/sale' component={Sale} />
               <Route path='/customer' component={CusotmerList} />
-              {this.props.children}
-              <TabBarExample />
             </div>
           </div>
         </Provider>

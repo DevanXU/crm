@@ -1,6 +1,6 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile';
-import Home from './home'
+import { AppList } from './home'
 
 export default class TabBarExample extends React.Component {
     constructor(props) {
@@ -106,7 +106,7 @@ export default class TabBarExample extends React.Component {
                         data-seed="logId1"
                     >
                         {/* {this.renderContent('CRM')} */}
-                        {<Home />}
+                        {<AppList />}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
