@@ -2,7 +2,7 @@ import React from 'react'
 import { TabBar } from 'antd-mobile';
 import { AppList } from './home'
 
-export default class TabBarExample extends React.Component {
+export default class HomeMenuBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

@@ -6,7 +6,6 @@ import store from './store'
 import Home from './components/home'
 import CusotmerList from './containers/customer'
 import Sale from './containers/sale'
-import TabBarExample from './components/tabbar'
 import './App.css';
 
 class App extends Component {

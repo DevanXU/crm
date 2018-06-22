@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Grid, Popover } from 'antd-mobile'
 import Navigator from './navigator'
 import { fetchApps } from '../actions/homeAction'
-import TabBarExample from './tabbar';
+import HomeMenuBar from './tabbar';
 import './home.css'
 
 const Item = Popover.Item;
@@ -41,17 +41,22 @@ export class AppList extends Component {
     render() {
         return (
             <div>
-                <Grid data={data} isCarousel onClick={_el => console.log(_el)}
-                    columnNum={3}
-                    renderItem={dataItem => (
-                        <div style={{ padding: '12.5px' }}>
-                            <Link to={dataItem.link}><img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="" /></Link>
-                            <div style={{ color: '#888', fontSize: '14px', marginTop: '12px' }}>
-                                <span>{dataItem.text}</span>
+                <div>
+                    <Navigator />
+                </div>
+                <div>
+                    <Grid data={data} isCarousel onClick={_el => console.log(_el)}
+                        columnNum={3}
+                        renderItem={dataItem => (
+                            <div style={{ padding: '12.5px' }}>
+                                <Link to={dataItem.link}><img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="" /></Link>
+                                <div style={{ color: '#888', fontSize: '14px', marginTop: '12px' }}>
+                                    <span>{dataItem.text}</span>
+                                </div>
                             </div>
-                        </div>
-                    )}
-                />
+                        )}
+                    />
+                </div>
             </div>
         )
     }
@@ -61,14 +66,7 @@ export class Home extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <Navigator name="CRM" menu={NavBarItems} />
-                </div>
-                {/* <div className="sub-title">销售过程</div>
-                <AppList /> */}
-                <div>
-                    <TabBarExample />
-                </div>
+                <HomeMenuBar />
             </div >
         );
     }
