@@ -6,6 +6,7 @@ import store from './store'
 import Home from './components/home'
 import CusotmerList from './containers/customer'
 import Sale from './containers/sale'
+import CustomerInfo from './components/customerinfo'
 import './App.css';
 
 class App extends Component {
@@ -13,13 +14,12 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Provider store={store}>
-          <div>
-            <div className="App">
-              <Route exact path='/' component={Home} />
-              <Route path='/sale' component={Sale} />
-              <Route path='/customer' component={CusotmerList} />
-            </div>
-          </div>
+          <switch className="App">
+            <Route exact path='/' component={Home} />
+            <Route exact path='/sale' component={Sale} />
+            <Route exact path='/customer' component={CusotmerList} />
+            <Route path={`/customer/:customerId`} component={CustomerInfo} />
+          </switch>
         </Provider>
       </BrowserRouter >
     );

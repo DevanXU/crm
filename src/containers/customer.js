@@ -2,11 +2,13 @@ import React from "react";
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { fetchCustomers, fetchPosts } from '../actions/customerAction'
+import { Link } from 'react-router-dom'
 
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
 
 import Navigator from '../components/navigator'
+import CustomerInfo from "../components/customerinfo";
 
 function MyBody(props) {
     return (
@@ -157,25 +159,27 @@ class CustomerList extends React.Component {
             const customer = data[index--];
             return (
                 <div key={rowID} style={{ padding: '0 15px' }} onClick={(e) => console.log(rowID, customer)}>
-                    <div
-                        style={{
-                            textAlign: 'left',
-                            lineHeight: '50px',
-                            color: '#888',
-                            fontSize: 18,
-                            borderBottom: '1px solid #F6F6F6',
-                        }}
-                    >{customer.name}</div>
-                    <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
-                        {/* <img style={{ height: '64px', marginRight: '15px' }} src={customer.img} alt="" /> */}
-                        <div style={{ textAlign: 'left', lineHeight: 1 }}>
-                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{customer.username}</div>
-                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{customer.email}</div>
-                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{customer.phone}</div>
-                            {/* <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div> */}
+                    <Link to={`/customer/${customer.id}`}>
+                        <div
+                            style={{
+                                textAlign: 'left',
+                                lineHeight: '50px',
+                                color: '#888',
+                                fontSize: 18,
+                                borderBottom: '1px solid #F6F6F6',
+                            }}
+                        >{customer.name}</div>
+                        <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
+                            {/* <img style={{ height: '64px', marginRight: '15px' }} src={customer.img} alt="" /> */}
+                            <div style={{ textAlign: 'left', lineHeight: 1 }}>
+                                <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{customer.username}</div>
+                                <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{customer.email}</div>
+                                <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{customer.phone}</div>
+                                {/* <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div> */}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </Link>
+                </div >
             );
         };
 
@@ -208,7 +212,7 @@ class CustomerList extends React.Component {
                     onEndReached={this.onEndReached}
                     onEndReachedThreshold={10}
                 />
-            </div>
+            </div >
         );
     }
 }
