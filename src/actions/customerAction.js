@@ -1,4 +1,4 @@
-import { FETCH_POSTS, SET_NAME } from './types'
+import { FETCH_POSTS, FETCH_CUSTOMERS } from './types'
 import { handleNetworkError } from './networkAction';
 import * as uri from './uri'
 
@@ -14,9 +14,14 @@ export const fetchPosts = () => dispatch => {
         ).catch(err => console.log('Fetch error: ' + err))
 }
 
-
-export const setName = (name) => ({
-    type: SET_NAME,
-    payload: name
-})
+export const fetchCustomers = () => dispatch => {
+    fetch(uri.URI_FETCH_CUSTOMERS)
+        .then(handleNetworkError)
+        .then(res => res.json())
+        .then(customers =>
+            dispatch({
+                type: FETCH_CUSTOMERS,
+                payload: customers
+            }))
+}
 

@@ -1,4 +1,4 @@
-import { FETCH_USERS, FETCH_PHOTOS, FETCH_TODOS } from './types'
+import { FETCH_CUSTOMERS, FETCH_PHOTOS, FETCH_TODOS } from './types'
 import { handleNetworkError } from './networkAction'
 import * as uri from './uri'
 
@@ -8,7 +8,7 @@ export const fetchUsers = () => dispatch => {
         .then(res => res.json())
         .then(users =>
             dispatch({
-                type: FETCH_USERS,
+                type: FETCH_CUSTOMERS,
                 payload: users
             })
         ).catch(err => console.log(err))

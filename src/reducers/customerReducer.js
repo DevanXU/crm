@@ -1,21 +1,21 @@
+import { FETCH_CUSTOMERS, FETCH_POSTS } from '../actions/types'
+
 const customerReducer = (state = {
-    name: '',
     posts: [],
+    customers: [],
     disable: false
 }, action) => {
     switch (action.type) {
-        case 'SET_NAME':
-            console.log('customerReducer SET_NAME:', state, action)
-            state = {
-                ...state,
-                name: action.payload
-            }
-            break
-        case 'FETCH_POSTS':
-            console.log('customerReducer FETCH_POSTS:', state, action)
+        case FETCH_POSTS:
             state = {
                 ...state,
                 posts: action.payload
+            }
+            break
+        case FETCH_CUSTOMERS:
+            state = {
+                ...state,
+                customers: action.payload
             }
             break
         default:

@@ -1,4 +1,4 @@
-import { FETCH_USERS, FETCH_TODOS, FETCH_PHOTOS } from '../actions/types'
+import { FETCH_CUSTOMERS, FETCH_TODOS, FETCH_PHOTOS } from '../actions/types'
 
 /**
  * Refer to db.json for the data structure of users, todos, photos.
@@ -12,7 +12,7 @@ const userReducer = (state = {
     photos: [],
 }, action) => {
     switch (action.type) {
-        case FETCH_USERS:
+        case FETCH_CUSTOMERS:
             state = {
                 ...state,
                 users: action.payload
