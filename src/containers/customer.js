@@ -44,6 +44,10 @@ const dataBlobs = {};
 let sectionIDs = [];  // will go wrong if "Go Back" in browser and re-enter
 let rowIDs = [];
 function genData(pIndex = 0) {
+    // Clear up before pushing any element
+    sectionIDs = [];
+    rowIDs = [];
+
     for (let i = 0; i < NUM_SECTIONS; i++) {
         const ii = (pIndex * NUM_SECTIONS) + i;
         const sectionName = `Section ${ii}`;
@@ -168,7 +172,7 @@ class CustomerList extends React.Component {
                                 fontSize: 18,
                                 borderBottom: '1px solid #F6F6F6',
                             }}
-                        >{customer.name}</div>
+                        >{customer.company.name}</div>
                         <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
                             {/* <img style={{ height: '64px', marginRight: '15px' }} src={customer.img} alt="" /> */}
                             <div style={{ textAlign: 'left', lineHeight: 1 }}>
@@ -185,7 +189,7 @@ class CustomerList extends React.Component {
 
         return (
             <div>
-                <Navigator name="客户" />
+                <Navigator name="客户列表" />
                 <ListView
                     ref={el => this.lv = el}
                     dataSource={this.state.dataSource}
