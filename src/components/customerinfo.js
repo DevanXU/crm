@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
+import { Card, Tabs, WhiteSpace, Badge } from 'antd-mobile';
 import Navigator from './navigator'
 
 const tabs = [
@@ -9,19 +9,50 @@ const tabs = [
     { title: <Badge dot>Third Tab</Badge> },
 ];
 
-const tabs2 = [
-    { title: 'First Tab', sub: '1' },
-    { title: 'Second Tab', sub: '2' },
-    { title: 'Third Tab', sub: '3' },
-];
+class CustomerDetails extends React.Component {
+    constructor(props) {
+        super(props)
+        this.customer = props.data
+    }
+
+    render() {
+        return (
+            <div>
+                <WhiteSpace size="lg" />
+                <Card full>
+                    <Card.Header
+                        title={this.customer.username}
+                        // thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
+                        extra={<span>{this.customer.company.name}</span>}
+                    />
+                    <Card.Body style={{ textAlign: 'left' }}>
+                        <div>
+                            <ul>{this.customer.email}</ul>
+                            <ul>{this.customer.phone}</ul>
+                        </div>
+                    </Card.Body>
+                    <Card.Footer content="footer content" extra={<div>extra footer content</div>} />
+                </Card>
+                <WhiteSpace size="lg" />
+            </div>
+        )
+    }
+}
 
 class CustomerInfo extends React.Component {
+    constructor(props) {
+        super(props)
+        console.log('CustomerInfo: ', props.location.state)
+        // this.customer = props.location.state
+    }
+
     render() {
         return (
             <div>
                 <div>
                     <Navigator />
                 </div>
+                <div><CustomerDetails data={this.props.location.state} /></div>
                 <div>
                     <Tabs tabs={tabs}
                         initialPage={1}

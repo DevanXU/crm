@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { fetchCustomers, fetchPosts } from '../actions/customerAction'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
@@ -161,9 +161,13 @@ class CustomerList extends React.Component {
             }
 
             const customer = data[index--];
+            var path = {
+                pathname: `/customer/${customer.id}`,
+                state: customer
+            }
             return (
-                <div key={rowID} style={{ padding: '0 15px' }} onClick={(e) => console.log(rowID, customer)}>
-                    <Link to={`/customer/${customer.id}`}>
+                <div key={rowID} style={{ padding: '0 15px' }}>
+                    <Link to={path}>
                         <div
                             style={{
                                 textAlign: 'left',
