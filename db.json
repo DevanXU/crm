@@ -4,34 +4,55 @@
       "custId": "1",
       "datetime": "2018-06-01",
       "activity": "Visit customer for the first time",
-      "status": "tentative"
+      "status": "tentative",
+      "id": 1
     },
     {
       "custId": "1",
       "datetime": "2018-06-02",
       "activity": "Visit customer for the second time",
-      "status": "inprogress"
+      "status": "inprogress",
+      "id": 2
     },
     {
       "custId": "1",
       "datetime": "2018-06-03",
       "activity": "Visit customer for the third time",
-      "status": "closed"
+      "status": "closed",
+      "id": 3
+    },
+    {
+      "custId": "2",
+      "datetime": "2018-06-18",
+      "activity": "Just a demo",
+      "status": "inprogress",
+      "id": 4
+    },
+    {
+      "custId": "2",
+      "datetime": "2018-06-18",
+      "activity": "Just a demo",
+      "status": "inprogress",
+      "id": 5
+    },
+    {
+      "custId": "2",
+      "datetime": "2018-06-18",
+      "activity": "Just a demo",
+      "status": "inprogress",
+      "id": 6
     }
   ],
-
   "sales": [
     {
       "custId": ""
     }
   ],
-
   "contracts": [
     {
       "custId": ""
     }
   ],
-
   "comments": [
     {
       "postId": 1,
@@ -3534,7 +3555,6 @@
       "body": "perspiciatis quis doloremque\nveniam nisi eos velit sed\nid totam inventore voluptatem laborum et eveniet\naut aut aut maxime quia temporibus ut omnis"
     }
   ],
-
   "customers": [
     {
       "id": 1,
@@ -3767,7 +3787,6 @@
       }
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -4000,7 +4019,6 @@
       }
     }
   ],
-
   "todos": [
     {
       "userId": 1,
@@ -5203,7 +5221,6 @@
       "completed": false
     }
   ],
-
   "albums": [
     {
       "userId": 1,
@@ -5706,7 +5723,6 @@
       "title": "enim repellat iste"
     }
   ],
-
   "photos": [
     {
       "albumId": 1,
