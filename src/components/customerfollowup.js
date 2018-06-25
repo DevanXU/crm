@@ -32,8 +32,10 @@ class CustomerFollowup extends React.Component {
     }
 
     render() {
+        var key = 0
+
         const followups = this.props.customer.followups.map(followup => (
-            <Step title={followup.datetime} description={followup.activity} />
+            <Step key={key++} title={followup.datetime} description={followup.activity} />
         ))
 
         return (
@@ -43,7 +45,7 @@ class CustomerFollowup extends React.Component {
                     <WhiteSpace />
                     <div className="sub-title">Small size</div>
                     <WhiteSpace />
-                    <button onClick={() => this.addFollowup()} />
+                    <button onClick={() => this.addFollowup()}>Add</button>
                     <Steps size="small" current={followups.length}>
                         {followups}
                     </Steps>

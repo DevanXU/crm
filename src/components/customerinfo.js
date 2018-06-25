@@ -11,8 +11,7 @@ const tabs = [
 ];
 
 const NavBarItems = [
-    (<Popover.Item key='item1' value='item1'>Item 1</Popover.Item>),
-    (<Popover.Item key='item2' value='item2'>Item 2</Popover.Item>),
+    (<Popover.Item key='item1' value='item1'>编辑</Popover.Item>),
 ]
 
 class CustomerBasic extends React.Component {
