@@ -1,23 +1,25 @@
-import { FETCH_CUSTOMERS, FETCH_POSTS } from '../actions/types'
+import { FETCH_CUSTOMERS, FETCH_POSTS, FETCH_FOLLOWUPS } from '../actions/types'
 
 const customerReducer = (state = {
-    posts: [],
     customers: [],
+    followups: [],
     disable: false
 }, action) => {
     switch (action.type) {
-        case FETCH_POSTS:
-            state = {
-                ...state,
-                posts: action.payload
-            }
-            break
         case FETCH_CUSTOMERS:
             state = {
                 ...state,
                 customers: action.payload
             }
             break
+
+        case FETCH_FOLLOWUPS:
+            state = {
+                ...state,
+                followups: action.payload
+            }
+            break
+
         default:
             break
     }

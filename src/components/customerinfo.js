@@ -5,9 +5,9 @@ import Navigator from './navigator'
 import CustomerFollowup from './customerfollowup'
 
 const tabs = [
-    { title: <Badge text={'3'}>Followup</Badge> },
-    { title: <Badge text={'今日(20)'}>Details</Badge> },
-    { title: <Badge dot>Sale</Badge> },
+    { title: <Badge text={'3'}>跟进记录</Badge> },
+    { title: <Badge text={'今日(20)'}>详情</Badge> },
+    { title: <Badge dot>销售机会</Badge> },
 ];
 
 const NavBarItems = [

@@ -1,5 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Steps, WingBlank, WhiteSpace } from 'antd-mobile'
+import { fetchFollowups } from '../actions/customerAction'
 import './customerfollowup.css'
 
 const Step = Steps.Step;
@@ -13,34 +15,28 @@ const customIcon = () => (
     </svg>
 );
 
-export default class CustomerFollowup extends React.Component {
+class CustomerFollowup extends React.Component {
+    componentWillMount() {
+        this.props.fetchFollowups()
+    }
+    
     render() {
+        const followups = this.props.customer.followups.map(followup => (
+                <Step title={followup.datetime} description={followup.activity} />
+        ))
+
         return (
             <div>
                 <WingBlank size="lg">
+                    <WhiteSpace />
+                    <WhiteSpace />
                     <div className="sub-title">Small size</div>
                     <WhiteSpace />
-                    <Steps size="small" current={1}>
-                        <Step title="Finished" description="This is description" />
-                        <Step title="In Progress" description="This is description" />
-                        <Step title="Waiting" description="This is description" />
-                    </Steps>
-                    <div className="sub-title">Small size, single line text</div>
-                    <WhiteSpace />
-                    <Steps size="small" current={1}>
-                        <Step title="Finished" />
-                        <Step title="In Progress" />
-                        <Step title="Waiting" />
-                    </Steps>
-                    <div className="sub-title">Default size</div>
-                    <WhiteSpace size="lg" />
-                    <Steps>
-                        <Step status="process" title="Finished" description="This is description" />
-                        <Step status="error" title="Error" description="This is description" />
-                        <Step title="Waiting" description="This is description" />
+                    <Steps size="small" current={followups.length}>
+                        {followups}
                     </Steps>
 
-                    <div className="sub-title">Customized status </div>
+                    {/* <div className="sub-title">Customized status </div>
                     <WhiteSpace size="lg" />
                     <Steps>
                         <Step status="finish" title="Step 1" icon={customIcon()} />
@@ -63,9 +59,24 @@ export default class CustomerFollowup extends React.Component {
                         <Step title="Step 2" icon={customIcon()} />
                         <Step title="Step 3" status="error" icon={customIcon()} />
                         <Step title="Step 4" icon={customIcon()} />
-                    </Steps>
+                    </Steps> */}
                 </WingBlank>
             </div>
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+      customer: state.customer
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchFollowups: () => dispatch(fetchFollowups())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerFollowup)

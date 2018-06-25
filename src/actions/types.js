@@ -2,7 +2,7 @@ export const FETCH_POSTS = 'FETCH_POSTS'
 export const FETCH_CUSTOMERS = 'FETCH_USERS'
 export const FETCH_PHOTOS = 'FETCH_PHOTOS'
 export const FETCH_TODOS = 'FETCH_TODOS'
-export const FETCH_APPS = 'FETCH_APPS'
+export const FETCH_FOLLOWUPS = 'FETCH_FOLLOWUPS'
 
 export const UPDATE_SALE_NUMBER = 'UPDATE_SALE_NUMBER'
 

@@ -56,7 +56,7 @@ export class Navigator extends Component {
                             }}
                             >
                                 {/* <Icon type="ellipsis" /> */}
-                                <Icon key="0" type="search" style={{ marginRight: '16px' }} />
+                                {/* <Icon key="0" type="search" style={{ marginRight: '16px' }} /> */}
                                 <Icon key="1" type="ellipsis" />
                             </div>
                         </Popover>
