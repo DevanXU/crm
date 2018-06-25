@@ -1,15 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Tabs, WhiteSpace, Badge } from 'antd-mobile';
+import { Card, Tabs, WhiteSpace, Badge, Popover } from 'antd-mobile';
 import Navigator from './navigator'
+import CustomerFollowup from './customerfollowup'
 
 const tabs = [
-    { title: <Badge text={'3'}>First Tab</Badge> },
-    { title: <Badge text={'今日(20)'}>Second Tab</Badge> },
-    { title: <Badge dot>Third Tab</Badge> },
+    { title: <Badge text={'3'}>Followup</Badge> },
+    { title: <Badge text={'今日(20)'}>Details</Badge> },
+    { title: <Badge dot>Sale</Badge> },
 ];
 
-class CustomerDetails extends React.Component {
+const NavBarItems = [
+    (<Popover.Item key='item1' value='item1'>Item 1</Popover.Item>),
+    (<Popover.Item key='item2' value='item2'>Item 2</Popover.Item>),
+]
+
+class CustomerBasic extends React.Component {
     constructor(props) {
         super(props)
         this.customer = props.data
@@ -39,6 +45,18 @@ class CustomerDetails extends React.Component {
     }
 }
 
+class CustomerDetails extends React.Component {
+    render() {
+        return (
+            <div>
+                Placeholder for customer details.
+            </div>
+        )
+    }
+}
+
+
+
 class CustomerInfo extends React.Component {
     constructor(props) {
         super(props)
@@ -50,9 +68,9 @@ class CustomerInfo extends React.Component {
         return (
             <div>
                 <div>
-                    <Navigator />
+                    <Navigator menu={NavBarItems} />
                 </div>
-                <div><CustomerDetails data={this.props.location.state} /></div>
+                <div><CustomerBasic data={this.props.location.state} /></div>
                 <div>
                     <Tabs tabs={tabs}
                         initialPage={1}
@@ -60,14 +78,14 @@ class CustomerInfo extends React.Component {
                         onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
                     >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                            Content of first tab
-                    </div>
+                            <CustomerFollowup />
+                        </div>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                            Content of second tab
-                    </div>
+                            <CustomerDetails />
+                        </div>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
                             Content of third tab
-                    </div>
+                        </div>
                     </Tabs>
                     <WhiteSpace />
                 </div>
