@@ -18,7 +18,7 @@ export class Navigator extends Component {
     handleVisibleChange = (visible) => {
         console.log('handleVisibleChange ...')
         this.setState({
-            visible: !this.state.visible
+            visible
         })
     }
 
