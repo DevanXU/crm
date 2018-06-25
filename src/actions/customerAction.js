@@ -24,3 +24,14 @@ export const fetchFollowups = () => dispatch => {
             })).catch(err => console.log('Fetch error: ' + err))
 }
 
+export const postFollowups = (followup) => dispatch => {
+    fetch(uri.URI_FETCH_FOLLOWUPS, {
+        method: 'POST',
+        body: JSON.stringify(followup),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+}

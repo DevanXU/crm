@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Steps, WingBlank, WhiteSpace } from 'antd-mobile'
-import { fetchFollowups } from '../actions/customerAction'
+import { fetchFollowups, postFollowups } from '../actions/customerAction'
 import './customerfollowup.css'
 
 const Step = Steps.Step;
@@ -19,10 +19,21 @@ class CustomerFollowup extends React.Component {
     componentWillMount() {
         this.props.fetchFollowups()
     }
-    
+
+    addFollowup = () => {
+        const followup = {
+            'custId': '2',
+            'datetime': '2018-06-18',
+            'activity': 'Just a demo',
+            'status': 'inprogress'
+        }
+
+        this.props.postFollowups(followup)
+    }
+
     render() {
         const followups = this.props.customer.followups.map(followup => (
-                <Step title={followup.datetime} description={followup.activity} />
+            <Step title={followup.datetime} description={followup.activity} />
         ))
 
         return (
@@ -32,6 +43,7 @@ class CustomerFollowup extends React.Component {
                     <WhiteSpace />
                     <div className="sub-title">Small size</div>
                     <WhiteSpace />
+                    <button onClick={() => this.addFollowup()} />
                     <Steps size="small" current={followups.length}>
                         {followups}
                     </Steps>
@@ -61,21 +73,22 @@ class CustomerFollowup extends React.Component {
                         <Step title="Step 4" icon={customIcon()} />
                     </Steps> */}
                 </WingBlank>
-            </div>
+            </div >
         )
     }
 }
 
 
 const mapStateToProps = (state) => {
-  return {
-      customer: state.customer
-  }
+    return {
+        customer: state.customer,
+    }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchFollowups: () => dispatch(fetchFollowups())
+        fetchFollowups: () => dispatch(fetchFollowups()),
+        postFollowups: (followup) => dispatch(postFollowups(followup))
     }
 }
 
