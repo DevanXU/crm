@@ -1,6 +1,6 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile';
-import { AppList } from './home'
+import { AppList } from './applist'
 import { Work } from './work'
 
 export default class HomeMenuBar extends React.Component {
