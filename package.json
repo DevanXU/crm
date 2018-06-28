@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^2.1.11",
+    "ra-data-json-server": "^2.0.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",
+    "react-admin": "^2.0.3",
     "react-app-rewired": "^1.5.2"
   }
 }
