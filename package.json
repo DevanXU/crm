@@ -5,6 +5,7 @@
   "dependencies": {
     "antd-mobile": "^2.1.11",
     "react": "^16.4.0",
+    "react-admin": "^2.0.3",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",

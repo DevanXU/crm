@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Tabs, WhiteSpace, Badge, Popover } from 'antd-mobile';
+import { Card, Tabs, WhiteSpace, Badge, Popover, Button, List, TextareaItem } from 'antd-mobile';
 import Navigator from './navigator'
 import CustomerFollowup from './customerfollowup'
+
 
 const tabs = [
     { title: <Badge text={'3'}>跟进记录</Badge> },
@@ -49,6 +50,7 @@ class CustomerDetails extends React.Component {
         return (
             <div>
                 Placeholder for customer details.
+                <WhiteSpace></WhiteSpace>
             </div>
         )
     }
@@ -56,11 +58,21 @@ class CustomerDetails extends React.Component {
 
 
 
-class CustomerInfo extends React.Component {
+class CustomerInfoView extends React.Component {
     constructor(props) {
         super(props)
-        console.log('CustomerInfo: ', props.location.state)
+        console.log('CustomerInfoView: ', props.location.state)
         // this.customer = props.location.state
+        this.state = {
+            display: 'none',
+        }
+    }
+    onChange = (tab, index) => {
+        if (index == 1) {
+            this.setState({ display: 'flex' })
+        } else {
+            this.setState({ display: 'none' })
+        }
     }
 
     render() {
@@ -72,8 +84,9 @@ class CustomerInfo extends React.Component {
                 <div><CustomerBasic data={this.props.location.state} /></div>
                 <div>
                     <Tabs tabs={tabs}
-                        initialPage={1}
-                        onChange={(tab, index) => { console.log('onChange', index, tab); }}
+                        initialPage={0}
+                        // onChange={(tab, index) => { console.log('onChange', index, tab); }}
+                        onChange={this.onChange}
                         onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
                     >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
@@ -86,8 +99,20 @@ class CustomerInfo extends React.Component {
                             Content of third tab
                         </div>
                     </Tabs>
-                    <WhiteSpace />
+                    <Button inline size="small" style={{ display: `${this.state.display}`, marginRight: '4px', height: '30px', width: '100%', textAlign: 'center' }}>Edit</Button>
                 </div>
+
+            </div >
+        )
+    }
+}
+
+class CustomerInfoEdit extends React.Component {
+    render() {
+        return (
+            <div>
+                <List renderHeader={() => 'Customer Info Edit'}>
+                </List>
             </div>
         )
     }
@@ -101,4 +126,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomerInfo)
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerInfoView)
