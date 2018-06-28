@@ -21,7 +21,7 @@
 - [ ] 增加“查看已审批”
 - [ ] 增加“访问权限管理”
 
-### 国际化（i18n）
+### 国际化（i18n）https://mobile.ant.design/components/calendar-cn/
 - [ ] 界面语言翻译（中、英文）
 
 ### 数据库设计
