@@ -1,39 +1,25 @@
-import React from 'react'
-import { Admin, Resource } from 'react-admin'
-import { List, GridList } from 'antd-mobile'
-import jsonServerProvider from 'ra-data-json-server'
+import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import store from './store';
+import Home from './components/home';
+import { CustomerList } from './customers';
+import './App.css';
 
-const Home = () => {
-  return (<div>Home</div>)
-}
-
-const CustomerList = () => (
-  <List>
-    <List.Item>Item 1</List.Item>
-    <List.Item>Item 1</List.Item>
-    <List.Item>Item 1</List.Item>
-    <List.Item>Item 1</List.Item>
-  </List>
-)
-
-const CustomerEdit = () => {
-  return (<div>Customer Edit</div>);
-}
-
-export default class App extends React.Component {
+class App extends Component {
   render() {
     return (
-      <Admin
-        title='CRM'
-        dataProvider={jsonServerProvider('http://localhost:3001')}
-        dashboard={Home}
-      >
-        <Resource
-          name='Customers'
-          list={CustomerList}
-          edit={CustomerEdit}
-        />
-      </Admin>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Switch className="App">
+            <Route exact path='/' component={Home} />
+            <Route exact path='/customer' component={CustomerList} />
+          </Switch>
+        </Provider>
+      </BrowserRouter >
     );
   }
 }
+
+export default App;
