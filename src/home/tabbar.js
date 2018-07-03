@@ -1,10 +1,8 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile';
 import { AppList } from './applist'
-// import { CustomerList } from '../customers'
-import { Work } from './work'
 
-export default class HomeMenuBar extends React.Component {
+export class HomeMenuBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -138,8 +136,7 @@ export default class HomeMenuBar extends React.Component {
                             });
                         }}
                     >
-                        {/* {this.renderContent('Work')} */}
-                        <Work />
+                        {this.renderContent('Work')}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
