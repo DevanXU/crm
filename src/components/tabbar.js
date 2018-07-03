@@ -1,6 +1,7 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile';
 import { AppList } from './applist'
+// import { CustomerList } from '../customers'
 import { Work } from './work'
 
 export default class HomeMenuBar extends React.Component {
@@ -108,6 +109,7 @@ export default class HomeMenuBar extends React.Component {
                     >
                         {/* {this.renderContent('CRM')} */}
                         {<AppList />}
+                        {/* {<CustomerList />} */}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
