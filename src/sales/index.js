@@ -4,12 +4,10 @@ import {
     SimpleList
 } from 'react-admin';
 
-export default class CustomerList extends React.Component {
+export class SaleList extends React.Component {
     render() {
         return (
             <List
-                // filters=''
-                // sort=''
                 {...this.props}
             >
                 <SimpleList
@@ -18,5 +16,13 @@ export default class CustomerList extends React.Component {
                 />
             </List>
         );
+    }
+}
+
+export class SaleCreate extends React.Component {
+    render() {
+        return (
+            <div>Sale Create</div>
+        )
     }
 }

@@ -6,7 +6,7 @@ import { Switch } from 'react-router-dom';
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { CustomerList, CustomerCreate, CustomerEdit, CustomerShow } from './customers';
-
+import { SaleList, SaleCreate } from './sales';
 
 export default class App extends React.Component {
     render() {
@@ -22,13 +22,19 @@ export default class App extends React.Component {
             // </CoreApp>
 
             <Admin
+                title='CRM'
                 dataProvider={jsonServerProvider('http://localhost:3001')}
+                dashboard={Home}
             >
                 <Resource name="users"
                     list={CustomerList}
                     create={CustomerCreate}
                     edit={CustomerEdit}
                     show={CustomerShow}
+                />
+                <Resource name="comments"
+                    list={SaleList}
+                    create={SaleCreate}
                 />
             </Admin>
         );
