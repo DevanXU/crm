@@ -24,24 +24,6 @@ const messages = {
     en: () => import('../i18n/en.js').then(messages => messages.default),
 };
 
-// export default class CoreApp extends React.Component {
-//     render() {
-//         const history = createHistory();
-
-//         return (
-//             // <ConnectedRouter>
-//             //     {this.props.children}
-//             // </ConnectedRouter>
-//             <BrowserRouter history={history}>
-//                 <Switch>
-//                     <Route path='/' render={() => <div>Home Page</div>} />
-//                     {this.props.children}
-//                 </Switch>
-//             </BrowserRouter>
-//         )
-//     }
-// }
-
 export const CoreApp = ({
     children,
 }) => {
@@ -73,7 +55,7 @@ export const CoreApp = ({
 
     /* side effects
     */
-    const dataProvider = simpleRestProvider('http://localhost:3001/');
+    const dataProvider = simpleRestProvider('http://jsonplaceholder.typicode.com');
     const authProvider = () => Promise.resolve();
     const i18nProvider = locale => {
         if (locale !== 'en') {
@@ -89,9 +71,7 @@ export const CoreApp = ({
         <Provider store={store}>
             <TranslationProvider>
                 <BrowserRouter>
-                    <Switch>
-                        {children}
-                    </Switch>
+                    {children}
                 </BrowserRouter>
             </TranslationProvider>
         </Provider>

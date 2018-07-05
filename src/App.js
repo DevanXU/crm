@@ -1,17 +1,36 @@
-// in src/App.js
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { CoreApp } from './core';
 import { Home } from './home';
-import { CustomerList } from './customers';
+import { Switch } from 'react-router-dom';
+import { Admin, Resource } from 'react-admin';
+import jsonServerProvider from 'ra-data-json-server';
+import { CustomerList, CustomerCreate, CustomerEdit, CustomerShow } from './customers';
+
 
 export default class App extends React.Component {
     render() {
         return (
-            <CoreApp title='CRM'>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/customer' component={CustomerList} />
-            </CoreApp>
+            // <CoreApp title='CRM'>
+            //     <Switch>
+            //         <Route exact path='/' component={Home} />
+            //         <Route exact path="/customers" hasCreate={true} render={(routeProps) => <CustomerList resource="users" {...routeProps} />} />
+            //         <Route exact path="/customers/create" render={(routeProps) => <CustomerCreate resource="users" {...routeProps} />} />
+            //         <Route exact path="/customers/:id" hasShow={true} render={(routeProps) => <CustomerEdit resource="users" {...routeProps} />} />
+            //         <Route exact path="/customers/:id/show" hasEdit={true} render={(routeProps) => <CustomerShow resource="users" {...routeProps} />} />
+            //     </Switch>
+            // </CoreApp>
+
+            <Admin
+                dataProvider={jsonServerProvider('http://localhost:3001')}
+            >
+                <Resource name="users"
+                    list={CustomerList}
+                    create={CustomerCreate}
+                    edit={CustomerEdit}
+                    show={CustomerShow}
+                />
+            </Admin>
         );
     }
 }
