@@ -19,7 +19,7 @@ const data = [
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
         text: '客户',
-        link: '/customer',
+        link: '/customers',
     },
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
