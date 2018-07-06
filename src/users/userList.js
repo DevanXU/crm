@@ -1,18 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     List,
     SimpleList
 } from 'react-admin';
 
-export default class CustomerList extends React.Component {
-    componentDidMount = () => {
-        console.log('CustomerList props:', this.props);
-    }
-
+export default class UserList extends Component {
     render() {
         return (
             <List
-                title='Customer List'
+                title='User List'
                 {...this.props}
             >
                 <SimpleList

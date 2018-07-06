@@ -1,4 +1,3 @@
-import React from 'react';
 import * as actions from './actions';
 import reducer from './reducer';
 import CustomerList from './customerList';
