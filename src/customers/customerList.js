@@ -5,11 +5,16 @@ import {
 } from 'react-admin';
 
 export default class CustomerList extends React.Component {
+    componentDidMount = () => {
+        console.log('CustomerList props:', this.props);
+    }
+
     render() {
         return (
             <List
                 // filters=''
                 // sort=''
+                title='Customer List'
                 {...this.props}
             >
                 <SimpleList
