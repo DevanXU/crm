@@ -20,6 +20,7 @@ export default class CustomerList extends React.Component {
                 <SimpleList
                     primaryText={record => record.name}
                     secondaryText={record => record.username}
+                    linkType='show'
                 />
             </List>
         );
