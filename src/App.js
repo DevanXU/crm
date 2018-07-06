@@ -5,8 +5,35 @@ import { Home } from './home';
 import { Switch } from 'react-router-dom';
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import { CustomerList, CustomerCreate, CustomerEdit, CustomerShow } from './customers';
+import {
+    CustomerList,
+    CustomerCreate,
+    CustomerEdit,
+    CustomerShow
+} from './customers';
 import { SaleList, SaleCreate } from './sales';
+
+import classnames from 'classnames';
+
+const Layout = ({
+    children,
+    classes,
+    className,
+    customRoutes,
+    dashboard,
+    logout,
+    menu,
+    open,
+    title,
+    ...props
+}) => (
+        <div
+        // className={classnames('layout', classes.root, className)}
+        // {...sanitizeRestProps(props)}
+        >
+            {children}
+        </div>
+    );
 
 export default class App extends React.Component {
     render() {
@@ -25,6 +52,7 @@ export default class App extends React.Component {
                 title='CRM'
                 dataProvider={jsonServerProvider('http://localhost:3001')}
                 dashboard={Home}
+                appLayout={Layout}
             >
                 <Resource name="users"
                     list={CustomerList}
