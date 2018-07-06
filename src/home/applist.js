@@ -24,7 +24,7 @@ const data = [
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
         text: '联系人',
-        link: '/user',
+        link: '/users',
     },
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
